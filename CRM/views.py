@@ -1,20 +1,33 @@
-from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, viewsets, permissions
 from  .models import OrderModel, ServicesModel, ClientsModel
-from .serializers import OrderSerializer, ServicesSerializer, ClientsSerializer
+from .serializers import OrderSerializer, ServicesSerializer, ClientsSerializer, CreateOrderSerializer
+from .permissions import IsOwnerOrReadOnly
 
 
 # Create your views here.
-class OrderView(generics.ListAPIView):
+class OrderView(viewsets.ModelViewSet):
     queryset = OrderModel.objects.all()
-    serializer_class = OrderSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return CreateOrderSerializer
+        if self.action == 'update':
+            return CreateOrderSerializer
+        else:
+            return OrderSerializer
 
 
-class ServicesView(generics.ListAPIView):
+class ServicesView(viewsets.ModelViewSet):
     queryset = ServicesModel.objects.all()
     serializer_class = ServicesSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
 
 
-class ClientsView(generics.ListAPIView):
+class ClientsView(viewsets.ModelViewSet):
     queryset = ClientsModel.objects.all()
     serializer_class = ClientsSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
