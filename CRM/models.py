@@ -23,14 +23,14 @@ class ServicesModel(models.Model):
 
 class OrderModel(models.Model):
     choices = [
-      ('Arrived', 'Поступил(а)'),
-      ('Confirmed', 'Согласовано'),
-      ('Declined', 'Отказ'),
-      ('Awaiting', 'Ожидает запчасти'),
-      ('Work in progress', 'В процессе'),
-      ("Job's done", "Готов"),
-      ("Not_paid", 'Не оплачен'),
-      ("Paid", 'Оплачен')]
+      ('Поступил(а', 'Поступил(а)'),
+      ('Согласован', 'Согласовано'),
+      ('Отказ', 'Отказ'),
+      ('Ожидает запчаст', 'Ожидает запчасти'),
+      ('В процесс', 'В процессе'),
+      ("Готов", "Готов"),
+      ("Не оплачен", 'Не оплачен'),
+      ("Оплачен", 'Оплачен')]
     client = models.ForeignKey(ClientsModel, related_name="clients", on_delete=models.PROTECT, blank=True)
     order = models.ManyToManyField(ServicesModel, related_name="services")
     executioner = models.ForeignKey(User, related_name="executioner", on_delete=models.PROTECT)
