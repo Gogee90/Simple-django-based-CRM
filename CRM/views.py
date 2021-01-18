@@ -31,3 +31,11 @@ class ClientsView(viewsets.ModelViewSet):
     serializer_class = ClientsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+
+
+class ClientOrderView(generics.ListAPIView):
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        order_id = self.kwargs['pk']
+        return OrderModel.objects.filter(order=order_id)
