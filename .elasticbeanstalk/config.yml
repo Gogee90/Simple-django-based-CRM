@@ -1,4 +1,6 @@
 branch-defaults:
+  aws_deploy:
+    environment: Simple-django-based-CRM-dev
   main:
     environment: Simple-django-based-CRM-dev
     group_suffix: null
