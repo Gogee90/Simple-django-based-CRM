@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#t%t2k64ae$e!xeuh*1nxa+ipbwftg*$qp0%42*mhbs*33053!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['rmp-dev.eu-central-1.elasticbeanstalk.com', '172.31.3.44']
+ALLOWED_HOSTS = ['rmp-dev.eu-central-1.elasticbeanstalk.com', '172.31.3.44', '127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -99,11 +99,15 @@ if 'RDS_DB_NAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-else:
+    else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'aa1ba4mux1oqp99',
+            'USER': 'postgres',
+            'PASSWORD': 'onethousandrubbles1000',
+            'HOST': 'aa1ba4mux1oqp99.cvopyxsqzoeb.eu-central-1.rds.amazonaws.com',
+            'PORT': '5432',
         }
     }
 
