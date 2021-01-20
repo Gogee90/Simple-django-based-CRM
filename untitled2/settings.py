@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#t%t2k64ae$e!xeuh*1nxa+ipbwftg*$qp0%42*mhbs*33053!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['rmp-dev.eu-central-1.elasticbeanstalk.com', '172.31.3.44']
 
