@@ -103,7 +103,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'aa1ba4mux1oqp99',
+            'NAME': 'ebdb',
             'USER': 'postgres',
             'PASSWORD': 'onethousandrubbles1000',
             'HOST': 'aa1ba4mux1oqp99.cvopyxsqzoeb.eu-central-1.rds.amazonaws.com',
