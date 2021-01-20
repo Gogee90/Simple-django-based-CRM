@@ -106,7 +106,7 @@ else:
             'NAME': 'database-1',
             'USER': 'postgres',
             'PASSWORD': 'onethousandrubbles1000',
-            'HOST': 'localhost',
+            'HOST': 'database-1.cvopyxsqzoeb.eu-central-1.rds.amazonaws.com',
             'PORT': '5432',
         }
     }
