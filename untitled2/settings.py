@@ -25,7 +25,7 @@ SECRET_KEY = '#t%t2k64ae$e!xeuh*1nxa+ipbwftg*$qp0%42*mhbs*33053!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['rmp-dev.eu-central-1.elasticbeanstalk.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
