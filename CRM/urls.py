@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import (OrderView, ServicesView, ClientsView,
-                    ClientOrderView, create_environment)
+                    ClientOrderView)
 
 urlpatterns = [
     path('orders/', OrderView.as_view({'get': 'list', 'post': 'create'})),
@@ -12,6 +12,5 @@ urlpatterns = [
     path('clients/', ClientsView.as_view({'get': 'list'})),
     path('clients/create/', ClientsView.as_view({'post': 'create'})),
     path('clients/<int:pk>/', ClientsView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
-    path('environment/', create_environment, name='create_environment')
+    path('dj-rest-auth/', include('dj_rest_auth.urls'))
 ]
