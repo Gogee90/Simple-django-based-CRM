@@ -2,6 +2,13 @@ from rest_framework import generics, viewsets, permissions
 from  .models import OrderModel, ServicesModel, ClientsModel
 from .serializers import OrderSerializer, ServicesSerializer, ClientsSerializer, CreateOrderSerializer
 from .permissions import IsOwnerOrReadOnly
+import boto3
+
+
+def create_environment(request):
+    client = boto3.client('elasticbeanstalk')
+    response = client.check_dns_availability(CNAMEPrefix='rmp-dev')
+    print(response)
 
 
 # Create your views here.
