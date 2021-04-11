@@ -11,6 +11,8 @@ class OrderInline(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
+    list_display = ['executioner', 'client',
+                    'status', 'order_date', 'price']
     filter_horizontal = ('order', )
 
 
